@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    /*	border: 0;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+body{
+    font-size: 1em;
+}
+
+#wrapper{
+    width:95%;
+    margin:0px auto;
+}
+
+h1{
+    /*	background-image: url(../img/logo.png);*/
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+}
+h2{
+    font-size:1.0em;
+    color:#005598;
+    margin-left: auto;
+    margin-right: auto;
+}
+h3{
+    font-size:1.0em;
+    color:red;
+    margin-left: auto;
+    margin-right: auto;
+}
+.textred{
+    color:red;
+}
+.content{
+    margin:10px 10px;
+    line-height:1.5em;
+    font-size:0.8em;
+}
+.footer{
+    margin-bottom:30px;
+    
+}

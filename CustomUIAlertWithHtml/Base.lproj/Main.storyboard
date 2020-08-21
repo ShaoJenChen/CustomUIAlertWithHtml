@@ -1,24 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jR1-tu-FEo">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="oE4-EA-J7L">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="jR1-tu-FEo" customClass="ViewController" customModule="CustomUIAlertWithHtml" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2v0-Wb-JD3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-OI-iWp">
+                                <rect key="frame" x="156.66666666666666" y="353" width="100.99999999999997" height="30"/>
+                                <state key="normal" title="WebView Alert"/>
+                                <connections>
+                                    <action selector="WebViewAlertTap" destination="jR1-tu-FEo" eventType="touchUpInside" id="6ca-9K-Q2x"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qed-OI-iWp" firstAttribute="centerX" secondItem="2v0-Wb-JD3" secondAttribute="centerX" id="7Cg-hn-Nbs"/>
+                            <constraint firstItem="qed-OI-iWp" firstAttribute="centerY" secondItem="2v0-Wb-JD3" secondAttribute="centerY" id="Vja-un-bWb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Of-Ln-L6J"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iV6-TK-rIX" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="134"/>
+        </scene>
+        <!--Custom Alert Web View Controller-->
+        <scene sceneID="PaK-CT-AUk">
+            <objects>
+                <viewController storyboardIdentifier="CustomAlertWebview" id="K7w-26-gBF" customClass="CustomAlertWebViewController" customModule="CustomUIAlertWithHtml" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dyb-J6-bOD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Or7-gu-GEf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="doR-SN-E8E">
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="386"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n45-Rf-Qd5">
+                                <rect key="frame" x="16" y="16" width="238" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="238" id="6Iv-ve-jbJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.54117647059999996" green="0.26274509800000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9E-kv-B2e">
+                                <rect key="frame" x="0.0" y="337" width="270" height="1"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="2gh-ua-Sul"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beE-c6-xXK">
+                                <rect key="frame" x="0.0" y="338" width="270" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ahM-7w-fCc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonTapped" destination="K7w-26-gBF" eventType="touchUpInside" id="xLV-rX-3y5"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleAspectFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-FY-4Al">
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="287"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="287" id="d23-H9-K8b"/>
+                                </constraints>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81R-Gm-r0L">
+                                <rect key="frame" x="0.0" y="287" width="270" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DL4-Nx-nEL" customClass="CheckedButton" customModule="CustomUIAlertWithHtml" customModuleProvider="target">
+                                        <rect key="frame" x="28.333333333333329" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DL4-Nx-nEL" secondAttribute="height" id="Y9O-cs-7UO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="checked" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not show me again" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFb-We-6JL">
+                                        <rect key="frame" x="63.333333333333329" y="16.666666666666686" width="143.33333333333337" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="10U-Ck-7ms"/>
+                                    <constraint firstItem="XFb-We-6JL" firstAttribute="leading" secondItem="DL4-Nx-nEL" secondAttribute="trailing" constant="5" id="3wl-Mv-QFE"/>
+                                    <constraint firstItem="XFb-We-6JL" firstAttribute="centerY" secondItem="DL4-Nx-nEL" secondAttribute="centerY" id="42d-Y4-cj5"/>
+                                    <constraint firstAttribute="bottom" secondItem="DL4-Nx-nEL" secondAttribute="bottom" constant="10" id="fb3-iz-W5r"/>
+                                    <constraint firstItem="XFb-We-6JL" firstAttribute="centerX" secondItem="81R-Gm-r0L" secondAttribute="centerX" id="hKm-vy-Ejb"/>
+                                    <constraint firstItem="XFb-We-6JL" firstAttribute="centerY" secondItem="81R-Gm-r0L" secondAttribute="centerY" id="qVt-mr-DKl"/>
+                                    <constraint firstItem="DL4-Nx-nEL" firstAttribute="top" secondItem="81R-Gm-r0L" secondAttribute="top" constant="10" id="uuY-zb-0SZ"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IKT-6O-UkD" appends="YES" id="TQ8-0z-WVD"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R0q-FY-4Al" firstAttribute="centerX" secondItem="doR-SN-E8E" secondAttribute="centerX" id="3kx-L6-ez0"/>
+                            <constraint firstItem="beE-c6-xXK" firstAttribute="leading" secondItem="doR-SN-E8E" secondAttribute="leading" id="6is-BH-n3K"/>
+                            <constraint firstItem="f9E-kv-B2e" firstAttribute="width" secondItem="doR-SN-E8E" secondAttribute="width" id="KkE-bb-afx"/>
+                            <constraint firstAttribute="trailing" secondItem="f9E-kv-B2e" secondAttribute="trailing" id="LZk-4F-3jU"/>
+                            <constraint firstItem="R0q-FY-4Al" firstAttribute="leading" secondItem="pGh-jS-E0k" secondAttribute="leading" id="Pof-qE-Wbp"/>
+                            <constraint firstItem="pGh-jS-E0k" firstAttribute="trailing" secondItem="81R-Gm-r0L" secondAttribute="trailing" id="PrY-aY-3cY"/>
+                            <constraint firstItem="Or7-gu-GEf" firstAttribute="top" secondItem="f9E-kv-B2e" secondAttribute="bottom" constant="48" id="S8q-J4-LXF"/>
+                            <constraint firstItem="Or7-gu-GEf" firstAttribute="top" secondItem="beE-c6-xXK" secondAttribute="bottom" id="Z5D-oI-Kwb"/>
+                            <constraint firstItem="beE-c6-xXK" firstAttribute="width" secondItem="doR-SN-E8E" secondAttribute="width" id="cU9-3A-pb2"/>
+                            <constraint firstItem="R0q-FY-4Al" firstAttribute="top" secondItem="Dyb-J6-bOD" secondAttribute="bottom" id="cYo-lG-AXu"/>
+                            <constraint firstItem="f9E-kv-B2e" firstAttribute="top" secondItem="81R-Gm-r0L" secondAttribute="bottom" id="eg7-bB-lkG"/>
+                            <constraint firstItem="81R-Gm-r0L" firstAttribute="top" secondItem="R0q-FY-4Al" secondAttribute="bottom" id="fXz-2k-CDF"/>
+                            <constraint firstItem="n45-Rf-Qd5" firstAttribute="leading" secondItem="doR-SN-E8E" secondAttribute="leading" constant="16" id="kHx-Ac-3Or"/>
+                            <constraint firstAttribute="trailing" secondItem="n45-Rf-Qd5" secondAttribute="trailing" constant="16" id="pJV-N4-p8J"/>
+                            <constraint firstItem="81R-Gm-r0L" firstAttribute="leading" secondItem="pGh-jS-E0k" secondAttribute="leading" id="qbR-2V-moJ"/>
+                            <constraint firstItem="n45-Rf-Qd5" firstAttribute="top" secondItem="Dyb-J6-bOD" secondAttribute="bottom" constant="16" id="uJ3-As-zLs"/>
+                            <constraint firstItem="f9E-kv-B2e" firstAttribute="leading" secondItem="doR-SN-E8E" secondAttribute="leading" id="vm1-ad-0i0"/>
+                            <constraint firstItem="pGh-jS-E0k" firstAttribute="trailing" secondItem="R0q-FY-4Al" secondAttribute="trailing" id="zCl-0y-RMr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pGh-jS-E0k"/>
+                    </view>
+                    <size key="freeformSize" width="270" height="386"/>
+                    <connections>
+                        <outlet property="alertButton" destination="beE-c6-xXK" id="kE3-Q2-ZAD"/>
+                        <outlet property="alertTitle" destination="n45-Rf-Qd5" id="f41-l0-vkc"/>
+                        <outlet property="checkButton" destination="DL4-Nx-nEL" id="jbm-Vr-1kd"/>
+                        <outlet property="webView" destination="R0q-FY-4Al" id="pGy-qe-SvC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbT-VR-pkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IKT-6O-UkD">
+                    <connections>
+                        <action selector="tapGesture:" destination="K7w-26-gBF" id="5H2-pS-XJV"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="818.84057971014499" y="63.586956521739133"/>
         </scene>
     </scenes>
 </document>
