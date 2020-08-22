@@ -43,22 +43,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-extension UIAlertController {
-    
-    static func showCustomAlertWebView(payload: AlertPayload, parentViewController: UIViewController) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let customAlertWebViewController = storyboard.instantiateViewController(withIdentifier: "CustomAlertWebview") as! CustomAlertWebViewController
-                
-        customAlertWebViewController.alertPayload = payload
-        
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        
-        alertController.setValue(customAlertWebViewController, forKey: "contentViewController")
-        
-        parentViewController.present(alertController, animated: true, completion: nil)
-    }
-    
-}

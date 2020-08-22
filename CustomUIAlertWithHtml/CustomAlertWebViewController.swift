@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 struct ButtonPayload {
     
@@ -36,15 +37,15 @@ struct AlertPayload {
 
 class CustomAlertWebViewController: UIViewController {
     
-    @IBOutlet weak var alertTitle: UILabel!
+//    @IBOutlet weak var alertTitle: UILabel!
     
     @IBOutlet weak var alertButton: UIButton!
-    
-    @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var checkButton: CheckedButton!
     
     var alertPayload: AlertPayload!
+    
+    let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 270, height: 287))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +54,17 @@ class CustomAlertWebViewController: UIViewController {
         
         let request = URLRequest(url: url)
         
-        self.webView.loadRequest(request)
+        self.view.addSubview(self.webView)
+        
+        self.webView.load(request)
         
         self.webView.scrollView.bounces = false
         
         self.view.backgroundColor = self.alertPayload.backgroundColor
         
-        self.alertTitle.text = self.alertPayload.title
+//        self.alertTitle.text = self.alertPayload.title
         
-        self.alertTitle.textColor = self.alertPayload.titleColor
+//        self.alertTitle.textColor = self.alertPayload.titleColor
         
         self.alertButton.setTitle(self.alertPayload.buttonPayload.title, for: .normal)
         
@@ -129,4 +132,23 @@ class CheckedButton: UIButton {
         checked.toggle()
         print("New value: \(checked)")
     }
+}
+
+extension UIAlertController {
+    
+    static func showCustomAlertWebView(payload: AlertPayload, parentViewController: UIViewController) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let customAlertWebViewController = storyboard.instantiateViewController(withIdentifier: "CustomAlertWebview") as! CustomAlertWebViewController
+                
+        customAlertWebViewController.alertPayload = payload
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        alertController.setValue(customAlertWebViewController, forKey: "contentViewController")
+        
+        parentViewController.present(alertController, animated: true, completion: nil)
+    }
+    
 }
