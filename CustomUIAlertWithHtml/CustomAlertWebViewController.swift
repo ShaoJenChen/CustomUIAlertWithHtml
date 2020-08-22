@@ -57,11 +57,11 @@ class CustomAlertWebViewController: UIViewController {
         
         self.webView.scrollView.bounces = false
         
-        self.view.backgroundColor = alertPayload.backgroundColor
+        self.view.backgroundColor = self.alertPayload.backgroundColor
         
-        self.alertTitle.text = alertPayload.title
+        self.alertTitle.text = self.alertPayload.title
         
-        self.alertTitle.textColor = alertPayload.titleColor
+        self.alertTitle.textColor = self.alertPayload.titleColor
         
         self.alertButton.setTitle(self.alertPayload.buttonPayload.title, for: .normal)
         
@@ -77,9 +77,9 @@ class CustomAlertWebViewController: UIViewController {
     
     @IBAction func buttonTapped() {
         
-        alertPayload.buttonPayload.action?(self.checkButton.checked)
+        self.alertPayload.buttonPayload.action?(self.checkButton.checked)
         
-        self.dismiss(animated: false, completion: alertPayload.completion)
+        self.dismiss(animated: false, completion: self.alertPayload.completion)
         
     }
     
@@ -126,7 +126,7 @@ class CheckedButton: UIButton {
     
     /// Called each time the button is tapped, and toggles the checked property
     @objc fileprivate func tapped() {
-        checked = !checked
+        checked.toggle()
         print("New value: \(checked)")
     }
 }
