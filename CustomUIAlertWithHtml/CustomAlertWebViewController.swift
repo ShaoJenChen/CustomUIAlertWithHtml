@@ -45,26 +45,43 @@ class CustomAlertWebViewController: UIViewController {
     
     var alertPayload: AlertPayload!
     
-    let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 270, height: 287))
+    var webView: WKWebView!
+        
+    var indicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let url = Bundle.main.url(forResource: "supported_products", withExtension: "html") else { return }
+                
+        let webViewCofig = WKWebViewConfiguration()
         
-        let request = URLRequest(url: url)
+        webViewCofig.dataDetectorTypes = []
         
-        self.view.addSubview(self.webView)
+        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 270, height: 287), configuration: webViewCofig)
         
-        self.webView.load(request)
+        self.webView.navigationDelegate = self
+        
+        self.webView.loadFileURL(url, allowingReadAccessTo: url)
         
         self.webView.scrollView.bounces = false
         
+        self.view.addSubview(self.webView)
+        
+        self.indicator = UIActivityIndicatorView(style: .gray)
+        
+        self.indicator?.startAnimating()
+        
+        self.webView.addSubview(self.indicator!)
+        
+        self.indicator!.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.indicator!.centerXAnchor.constraint(equalTo: self.webView.centerXAnchor),
+            self.indicator!.centerYAnchor.constraint(equalTo: self.webView.centerYAnchor)
+        ])
+        
         self.view.backgroundColor = self.alertPayload.backgroundColor
-        
-//        self.alertTitle.text = self.alertPayload.title
-        
-//        self.alertTitle.textColor = self.alertPayload.titleColor
         
         self.alertButton.setTitle(self.alertPayload.buttonPayload.title, for: .normal)
         
@@ -129,8 +146,9 @@ class CheckedButton: UIButton {
     
     /// Called each time the button is tapped, and toggles the checked property
     @objc fileprivate func tapped() {
+        
         checked.toggle()
-        print("New value: \(checked)")
+        
     }
 }
 
@@ -149,6 +167,15 @@ extension UIAlertController {
         alertController.setValue(customAlertWebViewController, forKey: "contentViewController")
         
         parentViewController.present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+extension CustomAlertWebViewController: WKNavigationDelegate {
+ 
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        self.indicator?.stopAnimating()
     }
     
 }
